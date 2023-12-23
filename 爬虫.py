@@ -6,6 +6,8 @@ headers = {
 for i in range(0, 250, 25):
     response = requests.get(f"https://movie.douban.com/top250?start={i}&filter=", headers=headers)
     if response.ok:
+
+
         content = response.text
         soup = BeautifulSoup(content,'html.parser')
         all_title = soup.findAll("span", attrs={"class": "title"})
